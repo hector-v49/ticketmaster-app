@@ -1,6 +1,6 @@
 // By Hector Verduzco Rayo, [insert name], [insert name]...
-// DUE: December 5, 2025
-// Group Project
+// Code DUE: December 5, 2025
+// Final Group Project
 #include <iostream>
 using namespace std;
 
