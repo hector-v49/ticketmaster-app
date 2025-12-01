@@ -1,0 +1,21 @@
+Event Sales App (by Shalltell Flores)
+Our group plans on working on a text-based program for event sales. Users can view
+events and buy tickets. Admin or event owner can add events and check sales.
+
+Planned Functionality
+- User can view events and can choose an event to purchase tickets for; they can
+view purchased tickets
+- Admin can view, add or delete events; edit events to change quantity/add more
+seats, set ticket prices, and view available quantities left; view total sales and
+how much they’ve sold in total
+- The system is text-based and allows users and admins to use a menu for
+choosing what action they want to take
+- A selection of default events will be loaded in via text file input
+- We will validate input and do throw/exception handling
+
+Work Breakdown
+Sandra Robles (User) - Everything about the user, ticket history, etc
+Stefan wilson (Event) - Event information, date, venue, available tickets, etc
+David Delgado (Ticket) - Ticket details like price, seat number, seat count, etc
+Hector Verduzco Rayo (Admin) - Manage events and view sales reports and event inventory
+Shalltell Flores (Main) - Putting it all together, initial input file handling, and connecting all the classes
