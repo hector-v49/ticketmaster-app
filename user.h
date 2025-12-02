@@ -1,11 +1,36 @@
-// Sandra's class
-#ifndef USER_H
-#define USER_H
+//  User.h
+//  User//
+//  Created by Sandra Robles
+
+
+#ifndef User_h
+#define User_h
+
+
+#include <string>
+using namespace std;
 
 class User
 {
-public:
 private:
+    string name;
+    string username;
+    string password;
+   
+public:
+    User();
+    User(string newName, string newUsername, string newPassword);
+    
+    void setName(string newName);
+    void setUsername(string newUsername);
+    void setPassword(string newPassword);
+    
+    string getName() const;
+    string getUsername() const;
+    string getPassword() const;
+    
+    bool login(string enteredUsername, string enteredPassword) const;
+    
+    
 };
-
-#endif
+#endif /* User_h */
