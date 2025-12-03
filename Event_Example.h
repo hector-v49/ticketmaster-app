@@ -13,7 +13,7 @@ using namespace std;
 class Event_Example {
 public:
     Event_Example();
-    Event_Example(string name, string date, string venue, int qty, double price);
+    Event_Example(string name, string date, string venue, int qty, double price, int maxCapacity);
 
     string getName() const;
     string getDate() const;
@@ -24,9 +24,11 @@ public:
     // for inventory stuff, should work with tickets class...?
     void decreaseAvailableTickets(int n);
 
+    int getMaxCapacity()const;
+
     // main.cpp will push events into this, the format is in events.txt in this order
-    // Event_Example name, date, location, quantity and price
-    // Superbowl 2025-06-22 Arena 50 40.00
+    // Event_Example name, date, location, quantity and price and maxCapacity
+    // Superbowl 2025-06-22 Arena 50 40.00 100
     friend istream& operator>>(istream& input, Event_Example& Event_Example);
 
 private:
@@ -35,6 +37,7 @@ private:
     string venue;
     int availableTickets;
     double price;
+    int maxCapacity;
 };
 
 

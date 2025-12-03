@@ -5,7 +5,7 @@
 #include "Ticket.h"
 using namespace std;
 
-int main()
+int main_old()
 {
   Ticket VIP("VIP Section", 250, 1, 1);
   Ticket Floor("Floor Section", 150, 32, 1);

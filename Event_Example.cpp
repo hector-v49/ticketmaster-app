@@ -8,15 +8,22 @@ using namespace std;
 Event_Example::Event_Example() {
     price = 0.0;
     availableTickets = 0;
+    maxCapacity = 0;
     //this should have the rest of the empty strings
 }
 
-Event_Example::Event_Example(string name, string date, string venue, int qty, double price) {
+Event_Example::Event_Example(string name, string date, string venue, int qty, double price, int capacity) {
     this->name = name;
     this->date = date;
     this->venue = venue;
     this->availableTickets = qty;
+    this->maxCapacity = capacity;
     this->price = price;
+}
+
+int Event_Example::getMaxCapacity() const
+{
+    return maxCapacity;
 }
 
 
@@ -32,7 +39,7 @@ void Event_Example::decreaseAvailableTickets(int n) {
 
 istream& operator>>(istream& input, Event_Example& Event_Example){
     // main.cpp will push events into this, the format is in events.txt in this order
-    // Event_Example name, date, location, quantity and price
-    // Superbowl 2025-06-22 Arena 50 40.00
+    // Event_Example name, date, location, quantity and price and maxCapacity
+    // Superbowl 2025-06-22 Arena 50 40.00 100
     return input;
 }

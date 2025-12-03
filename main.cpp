@@ -134,7 +134,7 @@ void adminMenu(Admin_Example& admin, vector<Event_Example>& events) {
             case 2:
             {
                 string name, date, venue;
-                int qty;
+                int qty, capacity;
                 double price;
 
                 clearInput();
@@ -150,7 +150,12 @@ void adminMenu(Admin_Example& admin, vector<Event_Example>& events) {
                 cout << "Price: ";
                 cin >> price;
 
-                Event_Example e(name, date, venue, qty, price);
+                cout << "Max Capacity: ";
+                cin >> capacity;
+
+
+
+                Event_Example e(name, date, venue, qty, price, capacity);
                 admin.addEvent(events, e);
 
                 cout << "Event added." << endl;
