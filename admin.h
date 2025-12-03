@@ -2,18 +2,38 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 
-#include "user.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
 #include "event.h"
 
-class Admin : public User
+class Admin
 {
 public:
     Admin();
-    Admin(string newName, string newUsername, string newPassword);
+    Admin(string name);
 
-    Event& createNewEvent(Event& event);
-    void checkSalesForEvent(Event& event);
-    void addTicketsForEvent(Event& event, int amountToAdd);
+    // Should allow admin to add new events
+    void addEvent(vector<Event>& events, const Event& e);
+
+    // Should allow admin to remove an event by maybe the index
+    void deleteEvent(vector<Event>& events, int index);
+
+    // Should allow admin to modify event details
+    // like name, date, venue, qty, price
+    void editEvent(Event& e);
+
+    // Should display all events with inventory counts
+    // for example 
+    // Superbowl | Qty Left: 40 | Price: $45
+    void viewInventory(const vector<Event>& events) const;
+
+    // Should show total sales from all events
+    // Total Sales: $345.00
+    void printTotalSales(const vector<Event>& events) const;
+private:
+    string name;
 };
 
 #endif

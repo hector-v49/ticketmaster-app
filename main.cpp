@@ -202,7 +202,7 @@ void adminMenu(Admin_Example& admin, vector<Event_Example>& events) {
                 break;
 
             case 6:
-                admin.printTotalSales();
+                admin.printTotalSales(events);
                 break;
 
             case 7:
