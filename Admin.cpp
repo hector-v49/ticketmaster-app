@@ -1,4 +1,4 @@
-#include "admin.h"
+#include "Admin.h"
 
 Admin::Admin() : name("n/a") {}
 
