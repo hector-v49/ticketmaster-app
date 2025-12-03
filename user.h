@@ -1,17 +1,20 @@
 //  User.h
 //  User//
 //  Created by Sandra Robles
-
-
 #ifndef User_h
 #define User_h
 
-
+#include <iostream>
 #include <string>
+#include "event.h"
 using namespace std;
 
 class User
 {
+// Admins won't buy tickets
+private:
+    bool purchaseTickets(Event& event, int amountToBuy);
+
 protected:
     string name;
     string username;

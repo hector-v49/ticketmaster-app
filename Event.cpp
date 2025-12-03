@@ -44,7 +44,7 @@ string Event::getVenue()const
     return venue;
 }
 
-int Event::getAvailableTickets() const
+int Event::getAmountOfAvailableTickets() const
 {
     return availableTickets;
 }
@@ -57,6 +57,11 @@ int Event::getMaxCapacity() const
 double Event::getTicketPrice()const
 {
     return ticketPrice;
+}
+
+void Event::setAmountOfAvailableTickets(const int& amount)
+{
+    availableTickets = amount;
 }
 
 void Event::setName(const string& name)
@@ -78,28 +83,6 @@ void Event::setTicketPrice(double price)
 {
     if (price>= 0)
         ticketPrice = price;
-}
-
-    // Function behavior
-bool Event::purchaseTickets(int quantity)
-{
-    if(quantity <= 0) return false;
-
-    if(quantity > availableTickets)
-        return false;
-
-    availableTickets -= quantity;
-    return true;
-}
-
-bool Event::addTickets(int quantity)
-{
-    if(quantity <= 0) return false;
-
-    if(availableTickets + quantity > maxCapacity)
-        return false;
-    availableTickets += quantity;
-    return true;
 }
 
 //  Display's info

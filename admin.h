@@ -2,10 +2,17 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 
-class Admin
+#include "user.h"
+#include "event.h"
+
+class Admin : public User
 {
 public:
-private:
+    Admin();
+
+    Event& createNewEvent(Event& event);
+    void checkSalesForEvent(Event& event);
+    void addTicketsForEvent(Event& event, int amountToAdd);
 };
 
 #endif
