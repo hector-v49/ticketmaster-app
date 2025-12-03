@@ -12,7 +12,7 @@ using namespace std;
 
 class User
 {
-private:
+protected:
     string name;
     string username;
     string password;
