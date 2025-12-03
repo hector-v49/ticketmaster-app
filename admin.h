@@ -9,6 +9,7 @@ class Admin : public User
 {
 public:
     Admin();
+    Admin(string newName, string newUsername, string newPassword);
 
     Event& createNewEvent(Event& event);
     void checkSalesForEvent(Event& event);
