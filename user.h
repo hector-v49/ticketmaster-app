@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <string>
-#include "event.h"
+#include "Event.h"
 using namespace std;
 
 class User

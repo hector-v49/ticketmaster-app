@@ -30,7 +30,6 @@ int Event_Example::getMaxCapacity() const
 string Event_Example::getName() const { return name; }
 string Event_Example::getDate() const { return date; }
 string Event_Example::getVenue() const { return venue; }
-int Event_Example::getAvailableTickets() const { return availableTickets; }
 double Event_Example::getTicketPrice() const { return price; }
 
 void Event_Example::decreaseAvailableTickets(int n) {
@@ -42,4 +41,9 @@ istream& operator>>(istream& input, Event_Example& Event_Example){
     // Event_Example name, date, location, quantity and price and maxCapacity
     // Superbowl 2025-06-22 Arena 50 40.00 100
     return input;
+}
+
+int Event_Example::getAmountOfAvailableTickets() const
+{
+    return availableTickets;
 }

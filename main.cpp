@@ -25,7 +25,7 @@ void printEvents(const vector<Event_Example>& events) {
         cout << i+1 << ". " << events[i].getName()
              << " | Date: " << events[i].getDate()
              << " | Venue: " << events[i].getVenue()
-             << " | Tickets Left: " << events[i].getAvailableTickets()
+             << " | Tickets Left: " << events[i].getAmountOfAvailableTickets()
              << " | Price: $" << events[i].getTicketPrice()
              << endl;
     }
@@ -69,7 +69,7 @@ void userMenu(User_Example& user, vector<Event_Example>& events)
 
                 Event_Example& ev = events[event_number - 1];
 
-                if (ev.getAvailableTickets() <= 0) {
+                if (ev.getAmountOfAvailableTickets() <= 0) {
                     cout << "No tickets left." << endl;
                     break;
                 }
@@ -78,7 +78,7 @@ void userMenu(User_Example& user, vector<Event_Example>& events)
                 int qty;
                 cin >> qty;
 
-                if (!cin || qty < 1 || qty > ev.getAvailableTickets()) {
+                if (!cin || qty < 1 || qty > ev.getAmountOfAvailableTickets()) {
                     clearInput();
                     cout << "Invalid." << endl;
                     break;

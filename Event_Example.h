@@ -18,8 +18,8 @@ public:
     string getName() const;
     string getDate() const;
     string getVenue() const;
-    int getAvailableTickets() const;
     double getTicketPrice() const;
+    int getAmountOfAvailableTickets()const;
 
     // for inventory stuff, should work with tickets class...?
     void decreaseAvailableTickets(int n);

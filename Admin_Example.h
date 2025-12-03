@@ -32,7 +32,7 @@ public:
 
     // Should show total sales from all events
     // Total Sales: $345.00
-    void printTotalSales() const;
+    void printTotalSales(const vector<Event_Example>& events) const;
 
 private:
     string name;

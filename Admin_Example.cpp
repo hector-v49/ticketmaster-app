@@ -26,9 +26,27 @@ void Admin_Example::editEvent(Event_Example& Event_Example) {
 }
 
 void Admin_Example::viewInventory(const vector<Event_Example>& events) const {
-    cout << "<<< viewInventory not available yet... - please add it >>>" << endl;
+    // cout << "<<< viewInventory not available yet... - please add it >>>" << endl;
+
+    cout << "--- Current inventory ---\n";
+    for (int i = 0; i < events.size(); i++)
+    {
+        cout << "Event #" << i + 1 << ": "
+             << events.at(i).getName() << " | Qty Left: "
+             << events.at(i).getAmountOfAvailableTickets() << " | Price: $"
+             << events.at(i).getTicketPrice() << endl;
+    }
 }
 
-void Admin_Example::printTotalSales() const {
-    cout << "<<< printTotalSales not available yet... - please add it >>>" << endl;
+void Admin_Example::printTotalSales(const vector<Event_Example>& events) const {
+    // cout << "<<< printTotalSales not available yet... - please add it >>>" << endl;
+    double total = 0;
+
+    for (int i = 0; i < events.size(); i++)
+    {
+        total += events.at(i).getMaxCapacity() - events.at(i).getAmountOfAvailableTickets();
+    }
+
+    cout << "Total Sales for " << events.size() << " events: $" << total << endl;
+
 }
