@@ -1,0 +1,5 @@
+Superbowl 2025-08-22 Stadium 150 60.00
+AnimeExpo 2025-07-10 ConventionCenter 300 45.00
+SXSW 2025-09-12 Arena 200 55.50
+TechSummit 2025-11-05 ExpoHall 120 120.00
+FoodFest 2025-06-18 DowntownPlaza 500 15.00
