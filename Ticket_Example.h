@@ -8,14 +8,14 @@
 
 using namespace std;
 
-class Ticket {
+class Ticket_Example {
 public:
-    Ticket();
-    Ticket(double price, string eventName);
+    Ticket_Example();
+    Ticket_Example(double price, string eventName);
 
     double getPrice() const;
 
-    // event name sgown on ticket
+    // event name sgown on Ticket_Example
     string getEventName() const;
 
 private:

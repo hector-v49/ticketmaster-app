@@ -11,15 +11,15 @@
 using namespace std;
 
 
-class User {
+class User_Example {
 public:
-    User();
-    User(string newName, string newUsername, string newPassword);
+    User_Example();
+    User_Example(string newName, string newUsername, string newPassword);
 
     string getUsername() const;
 
     // store purchased tickets in a vector/array
-    void addTicket(const Ticket& ticket);
+    void addTicket(const Ticket_Example& Ticket_Example);
 
     void printTickets() const;
 
@@ -29,7 +29,7 @@ private:
     string name;
     string username;
     string password;
-    vector<Ticket> tickets;
+    vector<Ticket_Example> tickets;
 };
 
 

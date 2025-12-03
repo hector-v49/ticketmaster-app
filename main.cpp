@@ -19,7 +19,7 @@ void clearInput(){
     getline(cin, mystring);
 }
 
-void printEvents(const vector<Event>& events) {
+void printEvents(const vector<Event_Example>& events) {
     cout << endl << "##### Available Events #####" << endl;
     for (size_t i = 0; i < events.size(); i++){
         cout << i+1 << ". " << events[i].getName()
@@ -32,7 +32,7 @@ void printEvents(const vector<Event>& events) {
     cout << "----------------------------" << endl << endl;
 }
 
-void userMenu(User& user, vector<Event>& events)
+void userMenu(User_Example& user, vector<Event_Example>& events)
 {
     int choice;
 
@@ -67,7 +67,7 @@ void userMenu(User& user, vector<Event>& events)
                     break;
                 }
 
-                Event& ev = events[event_number - 1];
+                Event_Example& ev = events[event_number - 1];
 
                 if (ev.getAvailableTickets() <= 0) {
                     cout << "No tickets left." << endl;
@@ -85,7 +85,7 @@ void userMenu(User& user, vector<Event>& events)
                 }
 
                 for (int i = 0; i < qty; i++) {
-                    Ticket t(ev.getTicketPrice(), ev.getName());
+                    Ticket_Example t(ev.getTicketPrice(), ev.getName());
                     user.addTicket(t);
                     ev.decreaseAvailableTickets(1);
                 }
@@ -109,7 +109,7 @@ void userMenu(User& user, vector<Event>& events)
     } while (choice != 4);
 }
 
-void adminMenu(Admin& admin, vector<Event>& events) {
+void adminMenu(Admin_Example& admin, vector<Event_Example>& events) {
     int choice;
 
     do {
@@ -150,7 +150,7 @@ void adminMenu(Admin& admin, vector<Event>& events) {
                 cout << "Price: ";
                 cin >> price;
 
-                Event e(name, date, venue, qty, price);
+                Event_Example e(name, date, venue, qty, price);
                 admin.addEvent(events, e);
 
                 cout << "Event added." << endl;
@@ -211,7 +211,7 @@ void adminMenu(Admin& admin, vector<Event>& events) {
     } while (choice != 7);
 }
 
-int findUser(const string& username, const vector<User>& users) {
+int findUser(const string& username, const vector<User_Example>& users) {
     for (int i = 0; i < users.size(); i++){
         if (users[i].getUsername() == username){
             return i;
@@ -223,13 +223,13 @@ int findUser(const string& username, const vector<User>& users) {
 
 
 int main(){
-    vector<Event> events;
-    vector<User> users;
+    vector<Event_Example> events;
+    vector<User_Example> users;
 
     // load initial events from file
     ifstream file("./events.txt");
 
-    Event temp;
+    Event_Example temp;
     while (file >> temp)
         events.push_back(temp);
 
@@ -274,7 +274,7 @@ int main(){
             cout << "Choose a password: ";
             cin >> password;
 
-            users.push_back(User(name, username, password));
+            users.push_back(User_Example(name, username, password));
             cout << "Signup complete. You can login now." << endl;
             continue;
         }
@@ -290,7 +290,7 @@ int main(){
             cin >> password;
 
             if (username == "admin") {
-                Admin admin("admin");
+                Admin_Example admin("admin");
                 adminMenu(admin, events);
                 continue;
             }

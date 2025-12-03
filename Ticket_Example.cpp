@@ -5,20 +5,20 @@
 #include "Ticket_Example.h"
 using namespace std;
 
-Ticket::Ticket() {
+Ticket_Example::Ticket_Example() {
     price = 0.0;
 }
 
 
-Ticket::Ticket(double p, string name) {
+Ticket_Example::Ticket_Example(double p, string name) {
     price = p;
     eventName = name;
 }
 
-double Ticket::getPrice() const {
+double Ticket_Example::getPrice() const {
     return price;
 }
 
-string Ticket::getEventName() const {
+string Ticket_Example::getEventName() const {
     return eventName;
 }

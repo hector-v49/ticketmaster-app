@@ -10,25 +10,25 @@
 #include "Event_Example.h"
 
 
-class Admin {
+class Admin_Example {
 public:
-    Admin();
-    Admin(string name);
+    Admin_Example();
+    Admin_Example(string name);
 
-    // Should allow admin to add new events
-    void addEvent(vector<Event>& events, const Event& e);
+    // Should allow Admin_Example to add new events
+    void addEvent(vector<Event_Example>& events, const Event_Example& e);
 
-    // Should allow admin to remove an event by maybe the index
-    void deleteEvent(vector<Event>& events, int index);
+    // Should allow Admin_Example to remove an Event_Example by maybe the index
+    void deleteEvent(vector<Event_Example>& events, int index);
 
-    // Should allow admin to modify event details
+    // Should allow Admin_Example to modify Event_Example details
     // like name, date, venue, qty, price
-    void editEvent(Event& e);
+    void editEvent(Event_Example& e);
 
     // Should display all events with inventory counts
     // for example 
     // Superbowl | Qty Left: 40 | Price: $45
-    void viewInventory(const vector<Event>& events) const;
+    void viewInventory(const vector<Event_Example>& events) const;
 
     // Should show total sales from all events
     // Total Sales: $345.00

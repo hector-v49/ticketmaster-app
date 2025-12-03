@@ -5,30 +5,30 @@
 #include "Admin_Example.h"
 #include <iostream>
 
-Admin::Admin() {
+Admin_Example::Admin_Example() {
     
 }
-Admin::Admin(string name_) {
+Admin_Example::Admin_Example(string name_) {
     this->name = name_;
 }
 
-void Admin::addEvent(vector<Event>& events, const Event& event) {
-    // Should push event into event list, see Event_Example.h/.cpp for the expected order
+void Admin_Example::addEvent(vector<Event_Example>& events, const Event_Example& Event_Example) {
+    // Should push Event_Example into Event_Example list, see Event_Example.h/.cpp for the expected order
 }
 
-void Admin::deleteEvent(vector<Event>& events, int index) {
-    // Should remove event from vector array
+void Admin_Example::deleteEvent(vector<Event_Example>& events, int index) {
+    // Should remove Event_Example from vector array
 }
 
-void Admin::editEvent(Event& event) {
+void Admin_Example::editEvent(Event_Example& Event_Example) {
     // Should allow editing fields
     cout << "<<< editEvent not available yet... - please add it >>>" << endl;
 }
 
-void Admin::viewInventory(const vector<Event>& events) const {
+void Admin_Example::viewInventory(const vector<Event_Example>& events) const {
     cout << "<<< viewInventory not available yet... - please add it >>>" << endl;
 }
 
-void Admin::printTotalSales() const {
+void Admin_Example::printTotalSales() const {
     cout << "<<< printTotalSales not available yet... - please add it >>>" << endl;
 }

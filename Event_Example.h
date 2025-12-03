@@ -10,10 +10,10 @@
 #include <iostream>
 using namespace std;
 
-class Event {
+class Event_Example {
 public:
-    Event();
-    Event(string name, string date, string venue, int qty, double price);
+    Event_Example();
+    Event_Example(string name, string date, string venue, int qty, double price);
 
     string getName() const;
     string getDate() const;
@@ -25,9 +25,9 @@ public:
     void decreaseAvailableTickets(int n);
 
     // main.cpp will push events into this, the format is in events.txt in this order
-    // event name, date, location, quantity and price
+    // Event_Example name, date, location, quantity and price
     // Superbowl 2025-06-22 Arena 50 40.00
-    friend istream& operator>>(istream& input, Event& event);
+    friend istream& operator>>(istream& input, Event_Example& Event_Example);
 
 private:
     string name;
