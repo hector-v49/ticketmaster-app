@@ -8,10 +8,10 @@
 #include <vector>
 #include <string>
 
-#include "User_Example.h"
-#include "Admin_Example.h"
-#include "Event_Example.h"
-#include "Ticket_Example.h"
+#include "User.h"
+#include "Admin.h"
+#include "Event.h"
+#include "Ticket.h"
 
 using namespace std;
 
@@ -20,7 +20,7 @@ void clearInput(){
     getline(cin, mystring);
 }
 
-void printEvents(const vector<Event_Example>& events) {
+void printEvents(const vector<Event>& events) {
     cout << endl << "##### Available Events #####" << endl;
     for (size_t i = 0; i < events.size(); i++){
         cout << i+1 << ". " << events[i].getName()
@@ -33,7 +33,7 @@ void printEvents(const vector<Event_Example>& events) {
     cout << "----------------------------" << endl << endl;
 }
 
-void userMenu(User_Example& user, vector<Event_Example>& events)
+void userMenu(User& user, vector<Event>& events)
 {
     int choice;
 
@@ -68,7 +68,7 @@ void userMenu(User_Example& user, vector<Event_Example>& events)
                     break;
                 }
 
-                Event_Example& ev = events[event_number - 1];
+                Event& ev = events[event_number - 1];
 
                 if (ev.getAmountOfAvailableTickets() <= 0) {
                     cout << "No tickets left." << endl;
@@ -85,10 +85,11 @@ void userMenu(User_Example& user, vector<Event_Example>& events)
                     break;
                 }
 
+                cout << " ======== TODO need addTicket ======== " << endl;
                 for (int i = 0; i < qty; i++) {
-                    Ticket_Example t(ev.getTicketPrice(), ev.getName());
-                    user.addTicket(t);
-                    ev.decreaseAvailableTickets(1);
+                    Ticket t(ev.getName(), ev.getTicketPrice(), 1, qty); //TODO add seat numbering to ticket or give random num
+                    //user.addTicket(t); //TODO need addTicket
+                    ev.purchaseTickets(1);
                 }
 
                 cout << "Purchase successful." << endl;
@@ -96,7 +97,8 @@ void userMenu(User_Example& user, vector<Event_Example>& events)
             }
 
             case 3:
-                user.printTickets();
+                //user.printTickets(); //TODO need printTickets
+                cout << endl << " ======== TODO: need user.printTickets  ======== " << endl << endl;
                 break;
 
             case 4:
@@ -110,7 +112,7 @@ void userMenu(User_Example& user, vector<Event_Example>& events)
     } while (choice != 4);
 }
 
-void adminMenu(Admin_Example& admin, vector<Event_Example>& events) {
+void adminMenu(Admin& admin, vector<Event>& events) {
     int choice;
 
     do {
@@ -156,7 +158,8 @@ void adminMenu(Admin_Example& admin, vector<Event_Example>& events) {
 
 
 
-                Event_Example e(name, date, venue, qty, price, capacity);
+                Event e("1", name, date, venue, capacity, price);
+                // Event(const string& id, const string& name, const string& date, const string& venue, int capacity, double price);
                 admin.addEvent(events, e);
 
                 cout << "Event added." << endl;
@@ -217,7 +220,7 @@ void adminMenu(Admin_Example& admin, vector<Event_Example>& events) {
     } while (choice != 7);
 }
 
-int findUser(const string& username, const vector<User_Example>& users) {
+int findUser(const string& username, const vector<User>& users) {
     for (int i = 0; i < users.size(); i++){
         if (users[i].getUsername() == username){
             return i;
@@ -229,17 +232,17 @@ int findUser(const string& username, const vector<User_Example>& users) {
 
 
 int main(){
-    vector<Event_Example> events;
-    vector<User_Example> users;
+    vector<Event> events;
+    vector<User> users;
 
-    // load initial events from file
-    ifstream file("./events.txt");
-
-    Event_Example temp;
-    while (file >> temp)
-        events.push_back(temp);
-
-    file.close();
+    // // load initial events from file
+    // ifstream file("./events.txt");
+    //
+    // Event temp;
+    // while (file >> temp)
+    //     events.push_back(temp);
+    //
+    // file.close();
 
 
     cout << "********************************************" << endl;
@@ -280,8 +283,8 @@ int main(){
             cout << "Choose a password: ";
             cin >> password;
 
-            users.push_back(User_Example(name, username, password));
-            cout << "Signup complete. You can login now." << endl;
+            users.push_back(User(name, username, password));
+            cout << endl << "Signup complete. Please login." << endl;
             continue;
         }
 
@@ -296,7 +299,7 @@ int main(){
             cin >> password;
 
             if (username == "admin") {
-                Admin_Example admin("admin");
+                Admin admin("admin");
                 adminMenu(admin, events);
                 continue;
             }

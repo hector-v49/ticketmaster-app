@@ -44,7 +44,7 @@ string Event::getVenue()const
     return venue;
 }
 
-int Event::getAvailableTickets() const
+int Event::getAmountOfAvailableTickets() const
 {
     return availableTickets;
 }
@@ -78,6 +78,11 @@ void Event::setTicketPrice(double price)
 {
     if (price>= 0)
         ticketPrice = price;
+}
+
+void Event::setAmountOfAvailableTickets(const int& amount)
+{
+    availableTickets = amount;
 }
 
     // Function behavior
