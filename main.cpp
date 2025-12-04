@@ -233,14 +233,19 @@ int main(){
     vector<Event> events;
     vector<User> users;
 
-    // // load initial events from file
-    // ifstream file("./events.txt");
-    //
-    // Event temp;
-    // while (file >> temp)
-    //     events.push_back(temp);
-    //
-    // file.close();
+    // load initial events from file
+    ifstream file(std::string(__FILE__).substr(0, std::string(__FILE__).find_last_of("/\\")) + "/events.txt");
+
+    Event temp;
+
+    // std::string line;
+    // while (std::getline(file, line))
+        // cout << line << "\n";
+
+    while (file >> temp)
+        events.push_back(temp);
+
+    file.close();
 
 
     cout << "********************************************" << endl;

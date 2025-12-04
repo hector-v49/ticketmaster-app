@@ -120,11 +120,23 @@ ostream& operator<<(ostream& out, const Event& e)
 }
 istream& operator>>(istream& in, Event& e)
 {
+    bool is_interactive = &in == &cin;
+
+    if (!is_interactive) {
+        in >> e.eventID
+           >> e.eventName
+           >> e.eventDate
+           >> e.venue
+           >> e.maxCapacity
+           >> e.availableTickets
+           >> e.ticketPrice;
+        return in;
+    }
+
     cout << " Enter Event ID: ";
-    in >> e.eventID;
+    getline(in, e.eventID);
 
     cout << " Enter Event Name: ";
-    in.ignore();
     getline(in, e.eventName);
 
     cout << " Enter Event Date (mm/dd/year): ";
