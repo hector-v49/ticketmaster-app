@@ -91,7 +91,7 @@ void userMenu(User& user, vector<Event>& events)
                 }
 
                 for (int i = 0; i < qty; i++) {
-                    Ticket t(ev.getName(), ev.getTicketPrice(), 1, qty); //TODO add seat numbering to ticket or give random num
+                    Ticket t(ev.getName(), ev.getTicketPrice(), "FLOOR", qty);
                     user.addTicket(t);
                     ev.purchaseTickets(1);
                 }

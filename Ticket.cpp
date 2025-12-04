@@ -5,12 +5,12 @@ Ticket::Ticket()
 {
   ticketInfo = "";
   price = 0.0;
-  seatNumber = 0;
+  seatNumber = "";
   ticketQuantity = 0;
   purchaseTotal = 0;
 }
 
-Ticket::Ticket(string info, double price, int seatNum, int quantity)
+Ticket::Ticket(string info, double price, string seatNum, int quantity)
 {
   ticketInfo = info;
   this->price = price;
@@ -29,7 +29,7 @@ double Ticket::getPrice() const
   return price;
 }
 
-int Ticket::getSeatNumber() const
+string Ticket::getSeatNumber() const
 {
   return seatNumber;
 }
