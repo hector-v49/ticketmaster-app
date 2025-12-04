@@ -10,6 +10,7 @@ class Ticket
     double price;
     int seatNumber;
     int ticketQuantity;
+    double purchaseTotal;
 
   public:
     Ticket();
@@ -18,6 +19,7 @@ class Ticket
     double getPrice() const;
     int getSeatNumber() const;
     int getTicketQuantity() const;
+    double getpurchaseTotal() const;
     void setTicketInfo(string info);
     void setPrice(double price);
     void setSeatNumber(int seatNum);
