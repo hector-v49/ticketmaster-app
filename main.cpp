@@ -1,5 +1,6 @@
 //
 // Created by Shalltell Flores on 11/10/25.
+// Group Members: Shalltell Flores, Sandra Robles, Stefan Wilson, David Delgado, and Hector Verduzco Rayo
 //
 
 #include <iostream>
