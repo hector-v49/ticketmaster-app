@@ -35,7 +35,7 @@ public:
     
     bool login(string enteredUsername, string enteredPassword) const;
     
-    void addToHistory(const Ticket& newTicket);
+    void addTicket(const Ticket& newTicket);
     void printHistory() const;
     
 };

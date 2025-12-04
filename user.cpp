@@ -55,7 +55,7 @@ bool User::login(string enteredUsername, string enteredPassword) const
     return (enteredUsername == username && enteredPassword == password);
 }
 
-void User::addToHistory(const Ticket& newTicket)
+void User::addTicket(const Ticket& newTicket)
 {
     purchaseHistory.push_back(newTicket);
 }
@@ -68,9 +68,9 @@ void User::printHistory() const
         return;
     }
     
-    cout << endl
+    cout << endl;
     
-    << "--------- Your Purchase History ---------" << endl;
+    cout << "--------- Your Purchase History ---------" << endl;
     
     for (int i = 0; i < purchaseHistory.size(); i++)
     {
