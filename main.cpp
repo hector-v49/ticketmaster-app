@@ -85,10 +85,9 @@ void userMenu(User& user, vector<Event>& events)
                     break;
                 }
 
-                cout << " ======== TODO need addTicket ======== " << endl;
                 for (int i = 0; i < qty; i++) {
                     Ticket t(ev.getName(), ev.getTicketPrice(), 1, qty); //TODO add seat numbering to ticket or give random num
-                    //user.addTicket(t); //TODO need addTicket
+                    user.addTicket(t);
                     ev.purchaseTickets(1);
                 }
 
@@ -97,8 +96,7 @@ void userMenu(User& user, vector<Event>& events)
             }
 
             case 3:
-                //user.printTickets(); //TODO need printTickets
-                cout << endl << " ======== TODO: need user.printTickets  ======== " << endl << endl;
+                user.printHistory();
                 break;
 
             case 4:
