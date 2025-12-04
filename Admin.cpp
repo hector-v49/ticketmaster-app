@@ -91,9 +91,9 @@ void Admin::printTotalSales(const vector<Event>& events) const {
 
     for (int i = 0; i < events.size(); i++)
     {
-        total += events.at(i).getMaxCapacity() - events.at(i).getAmountOfAvailableTickets();
+        total += (events.at(i).getMaxCapacity() - events.at(i).getAmountOfAvailableTickets()) * events.at(i).getTicketPrice();
     }
 
-    cout << "Total Sales for " << events.size() << " events: $" << total << endl;
+    cout << "Total Sales for " << events.size() << " event(s): $" << total << endl;
 
 }

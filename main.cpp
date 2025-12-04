@@ -161,7 +161,7 @@ void adminMenu(Admin& admin, vector<Event>& events) {
 
 
 
-                Event e("1", name, date, venue, capacity, price);
+                Event e("1", name, date, venue, qty, capacity, price);
                 // Event(const string& id, const string& name, const string& date, const string& venue, int capacity, double price);
                 admin.addEvent(events, e);
 

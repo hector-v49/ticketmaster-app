@@ -13,14 +13,14 @@ Event::Event()
 
 }
 
-Event::Event(const string& id, const string& name, const string& date, const string& venue, int capacity, double price)
+Event::Event(const string& id, const string& name, const string& date, const string& venue, int availableTickets, int capacity, double price)
 {
     eventID = id;
     eventName = name;
     eventDate = date;
     this->venue = venue;
+    this->availableTickets = availableTickets;
     maxCapacity = capacity;
-    availableTickets = capacity;
     ticketPrice = price;
 }
 

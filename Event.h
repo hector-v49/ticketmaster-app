@@ -20,7 +20,7 @@ private:
 
 public:
     Event();    // Default constructor
-    Event(const string& id, const string& name, const string& date, const string& venue, int capacity, double price);
+    Event(const string& id, const string& name, const string& date, const string& venue, int availableTickets, int capacity, double price);
 
     // Getters
     string getID()const;
