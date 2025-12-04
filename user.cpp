@@ -1,7 +1,10 @@
 //  User.cpp
 //  User
 //  Created by Sandra Robles
+
 #include "User.h"
+#include <iostream>
+using namespace std;
 
 User::User()
 {
@@ -52,15 +55,31 @@ bool User::login(string enteredUsername, string enteredPassword) const
     return (enteredUsername == username && enteredPassword == password);
 }
 
-bool User::purchaseTickets(Event& event, int amountToBuy)
+void User::addToHistory(const Ticket& newTicket)
 {
-    if (amountToBuy > event.getAmountOfAvailableTickets())
-    {
-        cout << "Ticket purchase amount greater than available tickets!\n";
-        return false;
-    }
+    purchaseHistory.push_back(newTicket);
+}
 
-    event.setAmountOfAvailableTickets(event.getAmountOfAvailableTickets() - amountToBuy);
-    cout << "Purchase successful!\n";
-    return true;
+void User::printHistory() const
+{
+    if (purchaseHistory.empty())
+    {
+        cout << "No Purchase History Found" << endl;
+        return;
+    }
+    
+    cout << endl
+    
+    << "--------- Your Purchase History ---------" << endl;
+    
+    for (int i = 0; i < purchaseHistory.size(); i++)
+    {
+        cout << i + 1 << ". "
+        << purchaseHistory[i].getTicketInfo()
+        << " | Price: $" << purchaseHistory[i].getPrice()
+        << " | Seat: " << purchaseHistory[i].getSeatNumber()
+        << endl;
+    }
+    
+    cout <<"-----------------------------------------" << endl;
 }

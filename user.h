@@ -1,25 +1,26 @@
 //  User.h
 //  User//
 //  Created by Sandra Robles
+
+
 #ifndef User_h
 #define User_h
 
-#include <iostream>
+
 #include <string>
-#include "Event.h"
+#include <vector>
+#include "Ticket.h"
 using namespace std;
 
 class User
 {
-// Admins won't buy tickets
 private:
-    bool purchaseTickets(Event& event, int amountToBuy);
-
-protected:
     string name;
     string username;
     string password;
-   
+    
+    vector<Ticket> purchaseHistory;
+    
 public:
     User();
     User(string newName, string newUsername, string newPassword);
@@ -34,6 +35,8 @@ public:
     
     bool login(string enteredUsername, string enteredPassword) const;
     
+    void addToHistory(const Ticket& newTicket);
+    void printHistory() const;
     
 };
 #endif /* User_h */
