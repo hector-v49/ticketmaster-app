@@ -34,7 +34,8 @@ void Admin::editEvent(Event& event) {
     do
     {
         cout << "===== EVENT EDIT MENU =====:\n";
-        cout << "1. Name\n2. Date\n3. Venue\n4. Ticket Quantity\n5. Ticket Price\nExit edit menu\n>> ";
+        cout << "1. Name\n2. Date\n3. Venue\n4. Ticket Quantity\n5. Ticket Price\n6. Exit edit menu\nSelect: ";
+        cin >> input;
 
         switch (input)
         {
