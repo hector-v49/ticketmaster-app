@@ -7,6 +7,7 @@ Ticket::Ticket()
   price = 0.0;
   seatNumber = 0;
   ticketQuantity = 0;
+  purchaseTotal = 0;
 }
 
 Ticket::Ticket(string info, double price, int seatNum, int quantity)
@@ -15,6 +16,7 @@ Ticket::Ticket(string info, double price, int seatNum, int quantity)
   this->price = price;
   seatNumber = seatNum;
   ticketQuantity = quantity;
+  purchaseTotal = 0;
 }
 
 string Ticket::getTicketInfo() const
@@ -35,6 +37,11 @@ int Ticket::getSeatNumber() const
 int Ticket::getTicketQuantity() const
 {
   return ticketQuantity;
+}
+
+double Ticket::getpurchaseTotal() const
+{
+  return purchaseTotal;
 }
 
 void Ticket::setTicketInfo(string info)
@@ -70,6 +77,7 @@ bool Ticket::ticketPurchase(double amount)
   else
   {
     ticketQuantity = ticketQuantity - amount;
+    purchaseTotal = amount * price;
     return true;
   }
 }
