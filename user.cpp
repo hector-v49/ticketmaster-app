@@ -1,10 +1,7 @@
 //  User.cpp
 //  User
 //  Created by Sandra Robles
-
 #include "User.h"
-#include <iostream>
-using namespace std;
 
 User::User()
 {
@@ -55,3 +52,15 @@ bool User::login(string enteredUsername, string enteredPassword) const
     return (enteredUsername == username && enteredPassword == password);
 }
 
+bool User::purchaseTickets(Event& event, int amountToBuy)
+{
+    if (amountToBuy > event.getAmountOfAvailableTickets())
+    {
+        cout << "Ticket purchase amount greater than available tickets!\n";
+        return false;
+    }
+
+    event.setAmountOfAvailableTickets(event.getAmountOfAvailableTickets() - amountToBuy);
+    cout << "Purchase successful!\n";
+    return true;
+}
