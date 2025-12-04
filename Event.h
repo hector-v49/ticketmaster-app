@@ -28,7 +28,7 @@ public:
     string getDate()const;
     string getVenue()const;
 
-    int getAvailableTickets()const;
+    int getAmountOfAvailableTickets()const;
     int getMaxCapacity()const;
     double getTicketPrice()const;
 
@@ -37,6 +37,7 @@ public:
     void setDate(const string& date);
     void setVenue(const string& venue_);
     void setTicketPrice(double price);
+    void setAmountOfAvailableTickets(const int& amount);
 
 
     // Function behavior
