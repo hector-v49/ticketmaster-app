@@ -44,7 +44,7 @@ string Event::getVenue()const
     return venue;
 }
 
-int Event::getAmountOfAvailableTickets() const
+int Event::getAvailableTickets() const
 {
     return availableTickets;
 }
@@ -57,11 +57,6 @@ int Event::getMaxCapacity() const
 double Event::getTicketPrice()const
 {
     return ticketPrice;
-}
-
-void Event::setAmountOfAvailableTickets(const int& amount)
-{
-    availableTickets = amount;
 }
 
 void Event::setName(const string& name)
@@ -83,6 +78,66 @@ void Event::setTicketPrice(double price)
 {
     if (price>= 0)
         ticketPrice = price;
+}
+
+    // Function behavior
+bool Event::purchaseTickets(int quantity)
+{
+    if(quantity <= 0) return false;
+
+    if(quantity > availableTickets)
+        return false;
+
+    availableTickets -= quantity;
+    return true;
+}
+
+bool Event::addTickets(int quantity)
+{
+    if(quantity <= 0) return false;
+
+    if(availableTickets + quantity > maxCapacity)
+        return false;
+    availableTickets += quantity;
+    return true;
+}
+
+ostream& operator<<(ostream& out, const Event& e)
+{
+    out << " Event ID: " << e.eventID << "\n";
+    out << " Name: " << e.eventName << "\n";
+    out << " Date: " << e.eventDate << "\n";
+    out << " Venue: " << e.venue << "\n";
+    out << " Capacity: " << e.maxCapacity << "\n";
+    out << " Tickets Available: " << e.availableTickets << "\n";
+    out << " Ticket Price: $" << e.ticketPrice << "\n";
+    return out;
+}
+istream& operator>>(istream& in, Event& e)
+{
+    cout << " Enter Event ID: ";
+    in >> e.eventID;
+
+    cout << " Enter Event Name: ";
+    in.ignore();
+    getline(in, e.eventName);
+
+    cout << " Enter Event Date (mm/dd/year): ";
+    getline(in, e.eventDate);
+
+    cout << " Enter Venue: ";
+    getline(in, e.venue);
+
+    cout << " Enter Max Capacity: ";  // initial tickets = capacity
+    in >> e.maxCapacity;
+
+    e.availableTickets = e.maxCapacity;
+
+    cout << " Enter Ticket Price: $";
+    in >> e.ticketPrice;
+
+    return in;
+
 }
 
 //  Display's info
