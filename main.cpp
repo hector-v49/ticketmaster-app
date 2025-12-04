@@ -21,16 +21,21 @@ void clearInput(){
 }
 
 void printEvents(const vector<Event>& events) {
-    cout << endl << "##### Available Events #####" << endl;
-    for (size_t i = 0; i < events.size(); i++){
-        cout << i+1 << ". " << events[i].getName()
-             << " | Date: " << events[i].getDate()
-             << " | Venue: " << events[i].getVenue()
-             << " | Tickets Left: " << events[i].getAmountOfAvailableTickets()
-             << " | Price: $" << events[i].getTicketPrice()
-             << endl;
+    if (events.size() > 0 ) {
+        cout << endl << "##### Available Events #####" << endl;
+        for (size_t i = 0; i < events.size(); i++){
+            cout << i+1 << ". " << events[i].getName()
+                 << " | Date: " << events[i].getDate()
+                 << " | Venue: " << events[i].getVenue()
+                 << " | Tickets Left: " << events[i].getAmountOfAvailableTickets()
+                 << " | Price: $" << events[i].getTicketPrice()
+                 << endl;
+        }
+        cout << "----------------------------" << endl << endl;
+    } else {
+        cout << endl << "No events available." << endl;
     }
-    cout << "----------------------------" << endl << endl;
+
 }
 
 void userMenu(User& user, vector<Event>& events)
@@ -64,7 +69,7 @@ void userMenu(User& user, vector<Event>& events)
                 if (!cin || event_number < 1 || event_number > (int)events.size())
                 {
                     clearInput();
-                    cout << "Invalid." << endl;
+                    cout << "That's more tickets than we have. Please try again." << endl;
                     break;
                 }
 
@@ -166,19 +171,21 @@ void adminMenu(Admin& admin, vector<Event>& events) {
 
             case 3: {
                 printEvents(events);
+                if (events.size() == 0) {
+                    continue;
+                }
                 cout << "Event number: ";
                 int n;
                 cin >> n;
 
-                if (!cin || n < 1 || n > (int)events.size())
-                {
+                if (!cin || n < 1 || n > (int)events.size()){
                     clearInput();
-                    cout << "Invalid." << endl;
+                    cout << "Invalid choice. Try again." << endl;
                     break;
                 }
 
                 admin.deleteEvent(events, n - 1);
-                cout << "Deleted." << endl;
+                cout << "Event Deleted!" << endl;
                 break;
             }
 
@@ -191,7 +198,7 @@ void adminMenu(Admin& admin, vector<Event>& events) {
                 if (!cin || n < 1 || n > (int)events.size())
                 {
                     clearInput();
-                    cout << "Invalid." << endl;
+                    cout << "Invalid choice, try again." << endl;
                     break;
                 }
 
@@ -272,7 +279,7 @@ int main(){
             string username;
             string password;
 
-            cout << "Enter your name: ";
+            cout << endl << "Enter your name: ";
             cin >> name;
 
             cout << "Choose a username: ";
@@ -295,7 +302,7 @@ int main(){
             string username;
             string password;
 
-            cout << "Username: ";
+            cout << endl << "Username: ";
             cin >> username;
 
             cout << "Password: ";
@@ -309,12 +316,12 @@ int main(){
 
             int user = findUser(username, users);
             if (user == -1) {
-                cout << "User not found. Please sign up instead!" << endl;
+                cout << endl << "User not found. Please sign up instead!" << endl;
                 continue;
             } else {
                 if (users[user].login(username, password))
                 {
-                    cout << "Login successful." << endl;
+                    cout << endl << "Login successful." << endl;
                     userMenu(users[user], events);
                 }
                 else
