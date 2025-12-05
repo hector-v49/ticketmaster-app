@@ -280,10 +280,11 @@ int main(){
             string password;
 
             cout << endl << "Enter your name: ";
-            cin >> name;
+            cin.ignore();
+            getline(cin, name);
 
             cout << "Choose a username: ";
-            cin >> username;
+            getline(cin, username);
 
             if (findUser(username, users) != -1) {
                 cout << "Username already exists." << endl;
@@ -291,8 +292,8 @@ int main(){
             }
 
             cout << "Choose a password: ";
-            cin >> password;
-
+            getline(cin, password);
+        
             users.push_back(User(name, username, password));
             cout << endl << "Signup complete. Please login." << endl;
             continue;
@@ -301,12 +302,13 @@ int main(){
         if (choice == 1) {
             string username;
             string password;
-
+            
+            cin.ignore();
             cout << endl << "Username: ";
-            cin >> username;
+            getline(cin, username);
 
             cout << "Password: ";
-            cin >> password;
+            getline(cin, password);
 
             if (username == "admin") {
                 Admin admin("admin");
