@@ -3,3 +3,4 @@
 3 SXSW 2025-09-12 Arena 50 50 100.00
 4 TechSummit 2025-11-05 ExpoHall 120 120 100.00
 5 FoodFest 2025-06-18 DowntownPlaza 500 500 100.00
+6 WinterGames 2025-08-22 IceCenter 600 600 100.00

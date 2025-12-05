@@ -7,6 +7,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <sstream>
 
 #include "User.h"
 #include "Admin.h"
@@ -240,19 +241,32 @@ int main(){
     vector<Event> events;
     vector<User> users;
 
-    // load initial events from file
-    ifstream file(std::string(__FILE__).substr(0, std::string(__FILE__).find_last_of("/\\")) + "/events.txt");
+    // load initial events from file, use fallback events if running from diff directory
+    static const vector<string> FALLBACK_EVENTS = {
+        "1 WinterGames 2025-08-22 IceCenter 600 600 100.00",
+        "2 DevConGlobal 2025-07-10 TechArena 300 300 100.00",
+        "3 SXSW 2025-09-12 Arena 50 50 100.00",
+        "4 TechSummit 2025-11-05 ExpoHall 120 120 100.00",
+        "5 FoodFest 2025-06-18 DowntownPlaza 500 500 100.00"
+    };
+
+    ifstream file(string(__FILE__).substr(0, string(__FILE__).find_last_of("/\\")) + "/events.txt");
+    stringstream fallback;
+
+    istream* in;
+
+    if (file) {
+        in = &file;
+    } else {
+        for (size_t i = 0; i < FALLBACK_EVENTS.size(); ++i)
+            fallback << FALLBACK_EVENTS[i] << '\n';
+
+        in = &fallback;
+    }
 
     Event temp;
-
-    // std::string line;
-    // while (std::getline(file, line))
-        // cout << line << "\n";
-
-    while (file >> temp)
+    while (*in >> temp)
         events.push_back(temp);
-
-    file.close();
 
 
     cout << "********************************************" << endl;
